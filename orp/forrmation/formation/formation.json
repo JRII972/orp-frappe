@@ -1,0 +1,98 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-07-24 15:22:16.090859",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "nom",
+  "article_de_formation",
+  "stagiaire_tab",
+  "table_jpqf",
+  "programme_tab",
+  "d\u00e9but_de_la_formation",
+  "column_break_ysva",
+  "fin_de_la_formation",
+  "section_break_xoal",
+  "table_yqvp"
+ ],
+ "fields": [
+  {
+   "fieldname": "nom",
+   "fieldtype": "Data",
+   "label": "Nom"
+  },
+  {
+   "fieldname": "article_de_formation",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Article de formation",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "stagiaire_tab",
+   "fieldtype": "Tab Break",
+   "label": "Stagiaire"
+  },
+  {
+   "fieldname": "table_jpqf",
+   "fieldtype": "Table",
+   "options": "Liste des stagiaires d une formation"
+  },
+  {
+   "fieldname": "programme_tab",
+   "fieldtype": "Tab Break",
+   "label": "Programme"
+  },
+  {
+   "fieldname": "d\u00e9but_de_la_formation",
+   "fieldtype": "Date",
+   "label": "D\u00e9but de la formation"
+  },
+  {
+   "fieldname": "column_break_ysva",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "fin_de_la_formation",
+   "fieldtype": "Date",
+   "label": "Fin de la formation"
+  },
+  {
+   "fieldname": "section_break_xoal",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "table_yqvp",
+   "fieldtype": "Table",
+   "options": "Programme Formation"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-07-24 15:22:16.090859",
+ "modified_by": "Administrator",
+ "module": "Formation",
+ "name": "Formation",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,53 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-07-24 15:17:36.691899",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "nom",
+  "dur\u00e9e",
+  "mod\u00e8le",
+  "formateur"
+ ],
+ "fields": [
+  {
+   "fieldname": "nom",
+   "fieldtype": "Data",
+   "label": "Nom"
+  },
+  {
+   "fieldname": "dur\u00e9e",
+   "fieldtype": "Duration",
+   "hide_days": 1,
+   "hide_seconds": 1,
+   "label": "Dur\u00e9e"
+  },
+  {
+   "fieldname": "mod\u00e8le",
+   "fieldtype": "Link",
+   "label": "Mod\u00e8le",
+   "options": "Modele de programme formation"
+  },
+  {
+   "fieldname": "formateur",
+   "fieldtype": "Link",
+   "label": "Formateur",
+   "options": "User"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2023-07-24 15:22:06.341895",
+ "modified_by": "Administrator",
+ "module": "Formation",
+ "name": "Programme Formation",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

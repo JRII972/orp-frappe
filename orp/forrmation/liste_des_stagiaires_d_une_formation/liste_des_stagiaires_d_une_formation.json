@@ -1,0 +1,65 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-07-24 14:33:23.188617",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "titre",
+  "devis",
+  "facture"
+ ],
+ "fields": [
+  {
+   "fieldname": "titre",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Stagiraire",
+   "options": "Stagiaire",
+   "reqd": 1
+  },
+  {
+   "fieldname": "devis",
+   "fieldtype": "Link",
+   "label": "Devis",
+   "options": "Quotation"
+  },
+  {
+   "fieldname": "facture",
+   "fieldtype": "Link",
+   "label": "Facture",
+   "options": "Sales Invoice"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2023-07-24 15:20:28.664381",
+ "modified_by": "Administrator",
+ "module": "Formation",
+ "name": "Liste des stagiaires d une formation",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [
+  {
+   "color": "Blue",
+   "title": "Attente de devis"
+  },
+  {
+   "color": "Cyan",
+   "title": "Attente de facturation"
+  },
+  {
+   "color": "Light Blue",
+   "title": "Attente de paiement"
+  },
+  {
+   "color": "Purple",
+   "title": "A r\u00e9gularis\u00e9"
+  }
+ ]
+}
