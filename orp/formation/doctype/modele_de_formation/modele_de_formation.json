@@ -1,0 +1,84 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:Mod\u00e8le {nom}",
+ "creation": "2023-07-27 09:06:52.257571",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "information_g\u00e9n\u00e9rale_section",
+  "nom",
+  "column_break_vbdg",
+  "type",
+  "article_de_formation",
+  "programme_section",
+  "programme"
+ ],
+ "fields": [
+  {
+   "fieldname": "information_g\u00e9n\u00e9rale_section",
+   "fieldtype": "Section Break",
+   "label": "Information g\u00e9n\u00e9rale"
+  },
+  {
+   "fieldname": "nom",
+   "fieldtype": "Data",
+   "label": "Nom"
+  },
+  {
+   "fieldname": "column_break_vbdg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "type",
+   "fieldtype": "Link",
+   "label": "Type",
+   "options": "Item Group"
+  },
+  {
+   "fieldname": "programme_section",
+   "fieldtype": "Section Break",
+   "label": "Programme"
+  },
+  {
+   "fieldname": "programme",
+   "fieldtype": "Table",
+   "label": "Liste des modules",
+   "options": "Liste programme formation"
+  },
+  {
+   "depends_on": "eval:!((doc.type == \"\") || (doc.type == undefined))",
+   "fieldname": "article_de_formation",
+   "fieldtype": "Link",
+   "label": "Article de formation",
+   "options": "Item"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-07-27 11:39:38.835081",
+ "modified_by": "Administrator",
+ "module": "Formation",
+ "name": "Modele de formation",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -7,19 +7,16 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "titre",
+  "status",
+  "stagiaire",
+  "client",
+  "is_payed",
+  "is_complete",
+  "nom",
   "devis",
   "facture"
  ],
  "fields": [
-  {
-   "fieldname": "titre",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Stagiraire",
-   "options": "Stagiaire",
-   "reqd": 1
-  },
   {
    "fieldname": "devis",
    "fieldtype": "Link",
@@ -31,12 +28,55 @@
    "fieldtype": "Link",
    "label": "Facture",
    "options": "Sales Invoice"
+  },
+  {
+   "fieldname": "stagiaire",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Stagiraire",
+   "options": "Contact",
+   "reqd": 1
+  },
+  {
+   "fieldname": "client",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Client",
+   "options": "Customer",
+   "reqd": 1
+  },
+  {
+   "fieldname": "nom",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Nom",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_payed",
+   "fieldtype": "Check",
+   "label": "Payement effectuer"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_complete",
+   "fieldtype": "Check",
+   "label": "Formalit\u00e9 effectuer"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Data",
+   "in_preview": 1,
+   "label": "Etat",
+   "read_only": 1,
+   "translatable": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2023-07-24 15:20:28.664381",
+ "modified": "2023-07-25 14:25:44.137722",
  "modified_by": "Administrator",
  "module": "Formation",
  "name": "Liste des stagiaires d une formation",
@@ -60,6 +100,10 @@
   {
    "color": "Purple",
    "title": "A r\u00e9gularis\u00e9"
+  },
+  {
+   "color": "Gray",
+   "title": "Inscription compl\u00e8te"
   }
  ]
 }

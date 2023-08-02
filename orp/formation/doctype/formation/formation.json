@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:{nom} {d\u00e9but_de_la_formation}/{fin_de_la_formation}",
  "creation": "2023-07-24 15:22:16.090859",
  "default_view": "List",
  "doctype": "DocType",
@@ -8,29 +9,34 @@
  "engine": "InnoDB",
  "field_order": [
   "nom",
+  "mod\u00e8le",
+  "column_break_ktpo",
+  "type",
   "article_de_formation",
   "stagiaire_tab",
-  "table_jpqf",
+  "liste_stagiaire",
   "programme_tab",
   "d\u00e9but_de_la_formation",
   "column_break_ysva",
   "fin_de_la_formation",
   "section_break_xoal",
-  "table_yqvp"
+  "programme"
  ],
  "fields": [
   {
    "fieldname": "nom",
    "fieldtype": "Data",
-   "label": "Nom"
+   "label": "Nom",
+   "mandatory_depends_on": "eval:((doc.mod\u00e8le == \"\") || (doc.mod\u00e8le == undefined))"
   },
   {
+   "depends_on": "eval:!((doc.type == \"\") || (doc.type == undefined))",
    "fieldname": "article_de_formation",
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Article de formation",
-   "options": "Item",
-   "reqd": 1
+   "mandatory_depends_on": "eval:((doc.mod\u00e8le == \"\") || (doc.mod\u00e8le == undefined))",
+   "options": "Item"
   },
   {
    "fieldname": "stagiaire_tab",
@@ -38,19 +44,16 @@
    "label": "Stagiaire"
   },
   {
-   "fieldname": "table_jpqf",
-   "fieldtype": "Table",
-   "options": "Liste des stagiaires d une formation"
-  },
-  {
    "fieldname": "programme_tab",
    "fieldtype": "Tab Break",
-   "label": "Programme"
+   "label": "Programme",
+   "mandatory_depends_on": "eval:doc.mod\u00e8le == \"\""
   },
   {
    "fieldname": "d\u00e9but_de_la_formation",
    "fieldtype": "Date",
-   "label": "D\u00e9but de la formation"
+   "label": "D\u00e9but de la formation",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_ysva",
@@ -59,24 +62,49 @@
   {
    "fieldname": "fin_de_la_formation",
    "fieldtype": "Date",
-   "label": "Fin de la formation"
+   "label": "Fin de la formation",
+   "reqd": 1
   },
   {
    "fieldname": "section_break_xoal",
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "table_yqvp",
+   "fieldname": "liste_stagiaire",
    "fieldtype": "Table",
-   "options": "Programme Formation"
+   "options": "Liste des stagiaires d une formation"
+  },
+  {
+   "fieldname": "programme",
+   "fieldtype": "Table",
+   "options": "Liste programme formation"
+  },
+  {
+   "fieldname": "mod\u00e8le",
+   "fieldtype": "Link",
+   "label": "Mod\u00e8le",
+   "options": "Modele de formation",
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "column_break_ktpo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "type",
+   "fieldtype": "Link",
+   "label": "Type",
+   "mandatory_depends_on": "eval:((doc.mod\u00e8le == \"\") || (doc.mod\u00e8le == undefined))",
+   "options": "Item Group"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-07-24 15:22:16.090859",
+ "modified": "2023-07-27 12:10:16.356422",
  "modified_by": "Administrator",
  "module": "Formation",
  "name": "Formation",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

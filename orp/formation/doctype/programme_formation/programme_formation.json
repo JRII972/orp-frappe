@@ -1,22 +1,25 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format: {nom} de {dur\u00e9e} - {formateur} | {formation}  | {DDMMYY}",
  "creation": "2023-07-24 15:17:36.691899",
  "default_view": "List",
  "doctype": "DocType",
- "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "is_template",
   "nom",
   "dur\u00e9e",
   "mod\u00e8le",
-  "formateur"
+  "formateur",
+  "formation"
  ],
  "fields": [
   {
    "fieldname": "nom",
-   "fieldtype": "Data",
-   "label": "Nom"
+   "fieldtype": "Link",
+   "label": "Module",
+   "options": "Module"
   },
   {
    "fieldname": "dur\u00e9e",
@@ -36,17 +39,44 @@
    "fieldtype": "Link",
    "label": "Formateur",
    "options": "User"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_template",
+   "fieldtype": "Check",
+   "label": "Est un mod\u00e8le",
+   "read_only": 1
+  },
+  {
+   "fieldname": "formation",
+   "fieldtype": "Link",
+   "label": "Formation",
+   "options": "Formation"
   }
  ],
  "index_web_pages_for_search": 1,
- "istable": 1,
  "links": [],
- "modified": "2023-07-24 15:22:06.341895",
+ "modified": "2023-07-27 11:47:31.852172",
  "modified_by": "Administrator",
  "module": "Formation",
  "name": "Programme Formation",
+ "naming_rule": "Expression",
  "owner": "Administrator",
- "permissions": [],
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": []

@@ -1,0 +1,167 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-07-27 10:50:39.585478",
+ "default_view": "List",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "titre",
+  "module",
+  "etat",
+  "color",
+  "column_break_ddmd",
+  "formation",
+  "programme_formation",
+  "formateur",
+  "column_break_nrmo",
+  "d\u00e9but",
+  "all_day",
+  "dur\u00e9e",
+  "fin",
+  "description_du_module_section",
+  "objectif_du_module",
+  "section_break_gspt",
+  "contenue_copy_copy"
+ ],
+ "fields": [
+  {
+   "fetch_from": ".",
+   "fieldname": "titre",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Sujet",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_ddmd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "programme_formation.nom",
+   "fieldname": "module",
+   "fieldtype": "Link",
+   "label": "Module",
+   "options": "Module"
+  },
+  {
+   "fieldname": "column_break_nrmo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "d\u00e9but",
+   "fieldtype": "Datetime",
+   "label": "D\u00e9but"
+  },
+  {
+   "depends_on": "eval:doc.all_day == false",
+   "fieldname": "fin",
+   "fieldtype": "Datetime",
+   "label": "Fin",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_gspt",
+   "fieldtype": "Section Break",
+   "label": "Contenue du cours"
+  },
+  {
+   "fieldname": "formation",
+   "fieldtype": "Link",
+   "label": "Formation",
+   "options": "Formation"
+  },
+  {
+   "depends_on": "eval:!((doc.formation == \"\") || (doc.formation == undefined))",
+   "fetch_from": "null.",
+   "fieldname": "programme_formation",
+   "fieldtype": "Link",
+   "label": "Programme formation",
+   "options": "Programme Formation"
+  },
+  {
+   "fetch_from": "programme_formation.formateur",
+   "fetch_if_empty": 1,
+   "fieldname": "formateur",
+   "fieldtype": "Link",
+   "label": "Formateur",
+   "options": "User"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "description_du_module_section",
+   "fieldtype": "Section Break",
+   "label": "Description du module"
+  },
+  {
+   "depends_on": "eval:!((doc.module == \"\") || (doc.module == undefined))",
+   "fetch_from": "module.description",
+   "fieldname": "objectif_du_module",
+   "fieldtype": "Text Editor",
+   "label": "Objectif du module",
+   "read_only": 1
+  },
+  {
+   "fetch_from": ".description",
+   "fieldname": "contenue_copy_copy",
+   "fieldtype": "Text Editor",
+   "label": "Contenue Copy Copy"
+  },
+  {
+   "default": "Programmer",
+   "fieldname": "etat",
+   "fieldtype": "Select",
+   "label": "Etat",
+   "options": "\nProgrammer\nFait\nD\u00e9placer\nAnnul\u00e9"
+  },
+  {
+   "fieldname": "color",
+   "fieldtype": "Color",
+   "label": "Couleur d'affichage"
+  },
+  {
+   "depends_on": "eval:doc.all_day == false",
+   "fieldname": "dur\u00e9e",
+   "fieldtype": "Duration",
+   "hide_days": 1,
+   "hide_seconds": 1,
+   "label": "Dur\u00e9e"
+  },
+  {
+   "default": "0",
+   "fieldname": "all_day",
+   "fieldtype": "Check",
+   "label": "Toute la journ\u00e9e ?"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-07-27 13:28:09.843281",
+ "modified_by": "Administrator",
+ "module": "Formation",
+ "name": "Cours",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "search_fields": "titre",
+ "show_title_field_in_link": 1,
+ "sort_field": "fin",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "titre"
+}

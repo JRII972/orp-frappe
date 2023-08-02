@@ -1,0 +1,79 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-07-25 18:08:15.095963",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "module",
+  "formateur",
+  "column_break_ybcr",
+  "jour_de_lexamen",
+  "corrig\u00e9_le",
+  "section_break_shnv",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "module",
+   "fieldtype": "Link",
+   "label": "Module",
+   "options": "Programme Formation"
+  },
+  {
+   "fieldname": "formateur",
+   "fieldtype": "Link",
+   "label": "Formateur",
+   "options": "User"
+  },
+  {
+   "fieldname": "column_break_ybcr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "jour_de_lexamen",
+   "fieldtype": "Datetime",
+   "label": "Jour de l'examen"
+  },
+  {
+   "fieldname": "corrig\u00e9_le",
+   "fieldtype": "Date",
+   "label": "Corrig\u00e9 le"
+  },
+  {
+   "fieldname": "section_break_shnv",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Table",
+   "options": "Liste note"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-07-25 18:08:15.095963",
+ "modified_by": "Administrator",
+ "module": "Formation",
+ "name": "Evaluation",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

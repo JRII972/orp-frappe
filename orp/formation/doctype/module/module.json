@@ -1,44 +1,36 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2023-07-24 14:29:53.432714",
+ "autoname": "field:nom",
+ "creation": "2023-07-27 10:51:41.410293",
  "default_view": "List",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
   "nom",
-  "contact",
-  "client"
+  "description"
  ],
  "fields": [
   {
    "fieldname": "nom",
    "fieldtype": "Data",
-   "label": "Nom d'affichage"
+   "label": "Nom",
+   "unique": 1
   },
   {
-   "fieldname": "contact",
-   "fieldtype": "Link",
-   "label": "Contact",
-   "options": "Contact"
-  },
-  {
-   "description": "Client concerner, cela peux \u00eatre la soci\u00e9t\u00e9 ou organisme ",
-   "fieldname": "client",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Client",
-   "options": "Customer",
-   "reqd": 1
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "label": "Description"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-07-24 17:38:08.125242",
+ "modified": "2023-07-27 11:09:03.102600",
  "modified_by": "Administrator",
  "module": "Formation",
- "name": "Stagiaire",
+ "name": "Module",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
