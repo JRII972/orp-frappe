@@ -1,0 +1,67 @@
+[
+ {
+  "context": null,
+  "contributed": 0,
+  "contribution_docname": null,
+  "contribution_status": "",
+  "docstatus": 0,
+  "doctype": "Translation",
+  "language": "fr",
+  "modified": "2023-10-29 10:53:30.388032",
+  "name": "611653c6b9",
+  "source_text": "Your email has been verified and your appointment has been scheduled",
+  "translated_text": "Votre adresse e-mail a été vérifiée et votre rendez-vous a été programmé"
+ },
+ {
+  "context": null,
+  "contributed": 0,
+  "contribution_docname": null,
+  "contribution_status": "",
+  "docstatus": 0,
+  "doctype": "Translation",
+  "language": "fr",
+  "modified": "2023-10-29 10:54:20.548263",
+  "name": "d4c008c615",
+  "source_text": "Verification failed please check the link",
+  "translated_text": "Échec de la vérification, veuillez vérifier le lien"
+ },
+ {
+  "context": null,
+  "contributed": 0,
+  "contribution_docname": null,
+  "contribution_status": "",
+  "docstatus": 0,
+  "doctype": "Translation",
+  "language": "fr",
+  "modified": "2023-10-29 10:55:00.733711",
+  "name": "1338640263",
+  "source_text": "Verification failed please check the link",
+  "translated_text": "Échec de la vérification, veuillez vérifier le lien"
+ },
+ {
+  "context": null,
+  "contributed": 0,
+  "contribution_docname": null,
+  "contribution_status": "",
+  "docstatus": 0,
+  "doctype": "Translation",
+  "language": "fr",
+  "modified": "2023-10-29 10:55:47.745398",
+  "name": "1d7d4ece59",
+  "source_text": "Appointment was created. But no lead was found. Please check the email to confirm",
+  "translated_text": "Le rendez-vous a été créé. Mais aucune piste n’a été trouvée. Veuillez vérifier l’e-mail pour confirmer"
+ },
+ {
+  "context": null,
+  "contributed": 0,
+  "contribution_docname": null,
+  "contribution_status": "",
+  "docstatus": 0,
+  "doctype": "Translation",
+  "language": "fr",
+  "modified": "2023-10-29 10:56:24.753261",
+  "name": "7e53d2e3d7",
+  "source_text": "Email verification failed.",
+  "translated_text": "La vérification de l’adresse e-mail a échoué."
+ }
+]
