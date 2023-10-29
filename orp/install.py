@@ -7,14 +7,14 @@ import frappe
 def before_install():
     if not frappe.conf.get("developer_mode") :
         frappe.conf.update({
-            "developer_mode" : 1,
-            "remove_developer_mode" : 1
+            "developer_mode" : 1
         })
         
 def after_install():
-    if not frappe.conf.get("remove_developer_mode") : 
-        frappe.conf.pop("remove_developer_mode")
-        frappe.conf.pop("developer_mode")
+    import_fixture()
+    # if not frappe.conf.get("remove_developer_mode") : 
+    #     frappe.conf.pop("remove_developer_mode")
+    #     frappe.conf.pop("developer_mode")
     
 def import_fixture():
     fixture_path = frappe.get_app_path(
