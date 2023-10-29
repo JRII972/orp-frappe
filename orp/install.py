@@ -4,11 +4,19 @@ import os
 
 import frappe
 
+def before_install():
+    if not frappe.conf.get("developer_mode") :
+        frappe.conf.update({
+            "developer_mode" : 1,
+            "remove_developer_mode" : 1
+        })
+        
 def after_install():
-    import_fixture()
+    if not frappe.conf.get("remove_developer_mode") : 
+        frappe.conf.pop("remove_developer_mode")
+        frappe.conf.pop("developer_mode")
     
 def import_fixture():
-    return
     fixture_path = frappe.get_app_path(
         "orp", "fixtures"
     )

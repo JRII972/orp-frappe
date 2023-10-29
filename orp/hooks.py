@@ -75,7 +75,7 @@ fixtures = [
 # Installation
 # ------------
 
-# before_install = "orp.install.before_install"
+before_install = "orp.install.before_install"
 after_install = "orp.install.after_install"
 
 # Uninstallation
