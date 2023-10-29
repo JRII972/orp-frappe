@@ -1,0 +1,165 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-10-27 16:44:28.515803",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "identification_section",
+  "client",
+  "client_diff\u00e9rent_du_stagiaire",
+  "column_break_ttnx",
+  "contact_stagiaire",
+  "section_break_fxya",
+  "amended_from",
+  "facturation_tab",
+  "service",
+  "column_break_tvew",
+  "item_price",
+  "section_break_diya",
+  "column_break_zprz",
+  "devis",
+  "column_break_ypsu",
+  "facture",
+  "section_break_bgns",
+  "demandes_de_financement"
+ ],
+ "fields": [
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "VAE",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "client",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Client",
+   "options": "Customer",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "client_diff\u00e9rent_du_stagiaire",
+   "fieldtype": "Check",
+   "label": "Client diff\u00e9rent du stagiaire"
+  },
+  {
+   "fieldname": "column_break_ttnx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.client_diff\u00e9rent_du_stagiaire == true ",
+   "fieldname": "contact_stagiaire",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Contact",
+   "mandatory_depends_on": "eval:doc.client_diff\u00e9rent_du_stagiaire == true ",
+   "options": "Contact",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_fxya",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "identification_section",
+   "fieldtype": "Section Break",
+   "label": "Identification"
+  },
+  {
+   "fieldname": "section_break_diya",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "devis",
+   "fieldtype": "Link",
+   "label": "Devis",
+   "options": "Quotation"
+  },
+  {
+   "fieldname": "column_break_ypsu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "facture",
+   "fieldtype": "Link",
+   "label": "Facture",
+   "options": "Quotation"
+  },
+  {
+   "fieldname": "section_break_bgns",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "demandes_de_financement",
+   "fieldtype": "Table",
+   "label": "Demandes de financement",
+   "options": "Liste demande de financement"
+  },
+  {
+   "fieldname": "service",
+   "fieldtype": "Link",
+   "label": "Service",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_zprz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "facturation_tab",
+   "fieldtype": "Tab Break",
+   "label": "Facturation"
+  },
+  {
+   "fieldname": "column_break_tvew",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "item_price",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Prix appliqu\u00e9",
+   "options": "Item Price"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [
+  {
+   "link_doctype": "Appointment",
+   "link_fieldname": "vae"
+  }
+ ],
+ "modified": "2023-10-29 10:37:49.279196",
+ "modified_by": "Administrator",
+ "module": "VAE",
+ "name": "VAE",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

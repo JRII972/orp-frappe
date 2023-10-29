@@ -33,6 +33,19 @@ app_license = "MIT"
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
 
+fixtures = [
+    {"dt": "DocType", "filters": [
+        [
+            "name", "in", [
+                "Appointment",
+                "Item",
+                "User",
+                "Translation"
+            ]
+        ]
+    ]}            
+]
+
 # Home Pages
 # ----------
 
@@ -116,6 +129,14 @@ app_license = "MIT"
 # Document Events
 # ---------------
 # Hook on document methods and events
+
+override_doctype_class = {
+    "Appointment": "orp.overrides.appointment.CustomAppointment"
+}
+
+doctype_js = {
+    "Appointment": "public/js/overrides/appointment.js",
+}
 
 # doc_events = {
 #	"*": {

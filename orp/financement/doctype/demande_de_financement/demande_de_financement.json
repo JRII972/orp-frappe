@@ -1,0 +1,281 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-10-27 17:20:43.824948",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "stagiaire_section",
+  "source_demandeur",
+  "column_break_rnbs",
+  "demandeur",
+  "column_break_zgjj",
+  "financeur",
+  "financement_de_section",
+  "source_cible",
+  "column_break_rbrb",
+  "cible",
+  "information_compl\u00e9mentaire_section",
+  "date_premi\u00e8re_demande",
+  "d\u00e9but_service",
+  "fin_service",
+  "demande_de_financement",
+  "column_break_unkh",
+  "montant_totale",
+  "pourcentage_demand\u00e9",
+  "pourcentage_accept\u00e9",
+  "pourcentage_pay\u00e9",
+  "montant_section",
+  "demande_column",
+  "montant_demand\u00e9",
+  "date_de_la_demande",
+  "confirmation_column",
+  "montant_accept\u00e9",
+  "date_de_la_confirmation",
+  "pay\u00e9_column",
+  "montant_pay\u00e9",
+  "facture_et_devis",
+  "liste_action",
+  "section_break_jijf",
+  "statut",
+  "column_break_nunh",
+  "titre"
+ ],
+ "fields": [
+  {
+   "fieldname": "stagiaire_section",
+   "fieldtype": "Section Break",
+   "label": "Stagiaire"
+  },
+  {
+   "fieldname": "column_break_rnbs",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "demandeur",
+   "fieldtype": "Dynamic Link",
+   "in_list_view": 1,
+   "label": "Demandeur",
+   "options": "source_demandeur",
+   "reqd": 1
+  },
+  {
+   "fieldname": "montant_section",
+   "fieldtype": "Section Break",
+   "label": "Montant"
+  },
+  {
+   "fieldname": "demande_column",
+   "fieldtype": "Column Break",
+   "label": "Demande"
+  },
+  {
+   "fieldname": "montant_demand\u00e9",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Montant demand\u00e9",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "date_de_la_demande",
+   "fieldtype": "Date",
+   "in_preview": 1,
+   "label": "Date de la demande"
+  },
+  {
+   "fieldname": "confirmation_column",
+   "fieldtype": "Column Break",
+   "label": "Confirmation"
+  },
+  {
+   "fieldname": "montant_accept\u00e9",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Montant accept\u00e9",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "date_de_la_confirmation",
+   "fieldtype": "Date",
+   "in_preview": 1,
+   "label": "Date de la confirmation"
+  },
+  {
+   "fieldname": "pay\u00e9_column",
+   "fieldtype": "Column Break",
+   "label": "Pay\u00e9"
+  },
+  {
+   "fieldname": "montant_pay\u00e9",
+   "fieldtype": "Currency",
+   "label": "Montant pay\u00e9",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "facture_et_devis",
+   "fieldtype": "Section Break",
+   "label": "Devis, Facture & Payement"
+  },
+  {
+   "fieldname": "section_break_jijf",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_nunh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "liste_action",
+   "fieldtype": "Table",
+   "options": "Liste action comptable financement"
+  },
+  {
+   "fieldname": "column_break_zgjj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "financeur",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Financeur",
+   "options": "Customer",
+   "reqd": 1
+  },
+  {
+   "fieldname": "source_demandeur",
+   "fieldtype": "Select",
+   "label": "Source",
+   "options": "Customer\nContact",
+   "reqd": 1
+  },
+  {
+   "fieldname": "financement_de_section",
+   "fieldtype": "Section Break",
+   "label": "Financement de "
+  },
+  {
+   "fieldname": "source_cible",
+   "fieldtype": "Link",
+   "label": "Source",
+   "options": "DocType",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_rbrb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "cible",
+   "fieldtype": "Dynamic Link",
+   "in_list_view": 1,
+   "label": "Document",
+   "options": "source_cible",
+   "reqd": 1
+  },
+  {
+   "fieldname": "information_compl\u00e9mentaire_section",
+   "fieldtype": "Section Break",
+   "label": "Information compl\u00e9mentaire"
+  },
+  {
+   "fieldname": "date_premi\u00e8re_demande",
+   "fieldtype": "Date",
+   "label": "Date premi\u00e8re demande",
+   "read_only": 1
+  },
+  {
+   "fieldname": "demande_de_financement",
+   "fieldtype": "Date",
+   "in_preview": 1,
+   "label": "Demande de financement",
+   "read_only": 1
+  },
+  {
+   "fieldname": "d\u00e9but_service",
+   "fieldtype": "Date",
+   "label": "D\u00e9but service",
+   "read_only": 1
+  },
+  {
+   "fieldname": "fin_service",
+   "fieldtype": "Date",
+   "label": "Fin service ",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_unkh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "montant_totale",
+   "fieldtype": "Currency",
+   "label": "Montant totale"
+  },
+  {
+   "fieldname": "pourcentage_demand\u00e9",
+   "fieldtype": "Currency",
+   "label": "Pourcentage demand\u00e9"
+  },
+  {
+   "fieldname": "pourcentage_accept\u00e9",
+   "fieldtype": "Currency",
+   "label": "Pourcentage accept\u00e9"
+  },
+  {
+   "fieldname": "pourcentage_pay\u00e9",
+   "fieldtype": "Currency",
+   "label": "Pourcentage pay\u00e9"
+  },
+  {
+   "fieldname": "titre",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Titre",
+   "search_index": 1
+  },
+  {
+   "default": "Brouillon",
+   "fieldname": "statut",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Statut",
+   "options": "Brouillon\nEn attente d'envoie\nEn attente de validation\nNavette\nValid\u00e9\nEn attente de paiement\nPartiellement pay\u00e9\nPay\u00e9\nEn attente\nAnnul\u00e9\nRefus\u00e9"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-10-28 13:56:57.146377",
+ "modified_by": "Administrator",
+ "module": "Financement",
+ "name": "Demande de financement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "search_fields": "titre,cible,demandeur,financeur",
+ "show_preview_popup": 1,
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "titre",
+ "track_changes": 1
+}
