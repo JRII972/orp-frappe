@@ -37,10 +37,10 @@ fixtures = [
     {"dt": "DocType", "filters": [
         [
             "name", "in", [
+                "Quotation",
                 "Appointment",
                 "Item",
                 "User",
-                "Quotation",
                 "Sales Order"
             ]
         ]
