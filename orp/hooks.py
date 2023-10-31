@@ -40,10 +40,15 @@ fixtures = [
                 "Appointment",
                 "Item",
                 "User",
+                "Quotation",
+                "Sales Order"
             ]
         ]
     ]}   ,
-    "Translation"         
+    "Translation",
+    "Project Template",
+    "Project Type",
+    "Activity Type"
 ]
 
 # Home Pages

@@ -39,7 +39,7 @@
   "facture_et_devis",
   "liste_action",
   "section_break_jijf",
-  "statut",
+  "status",
   "column_break_nunh",
   "titre"
  ],
@@ -241,16 +241,16 @@
   },
   {
    "default": "Brouillon",
-   "fieldname": "statut",
+   "fieldname": "status",
    "fieldtype": "Select",
    "in_list_view": 1,
-   "label": "Statut",
+   "label": "Status",
    "options": "Brouillon\nEn attente d'envoie\nEn attente de validation\nNavette\nValid\u00e9\nEn attente de paiement\nPartiellement pay\u00e9\nPay\u00e9\nEn attente\nAnnul\u00e9\nRefus\u00e9"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-10-28 13:56:57.146377",
+ "modified": "2023-10-29 15:09:49.835761",
  "modified_by": "Administrator",
  "module": "Financement",
  "name": "Demande de financement",
@@ -275,7 +275,52 @@
  "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": [],
+ "states": [
+  {
+   "color": "Orange",
+   "title": "Brouillon"
+  },
+  {
+   "color": "Red",
+   "title": "En attente d'envoie"
+  },
+  {
+   "color": "Purple",
+   "title": "En attente de validation"
+  },
+  {
+   "color": "Pink",
+   "title": "Navette"
+  },
+  {
+   "color": "Green",
+   "title": "Valid\u00e9"
+  },
+  {
+   "color": "Cyan",
+   "title": "En attente de paiement"
+  },
+  {
+   "color": "Light Blue",
+   "title": "Partiellement pay\u00e9"
+  },
+  {
+   "color": "Blue",
+   "title": "Pay\u00e9"
+  },
+  {
+   "color": "Gray",
+   "title": "En attente"
+  },
+  {
+   "color": "Gray",
+   "title": "Annul\u00e9"
+  },
+  {
+   "color": "Red",
+   "title": "Refus\u00e9"
+  }
+ ],
  "title_field": "titre",
  "track_changes": 1
 }

@@ -11,7 +11,7 @@ def before_install():
         })
         
 def after_install():
-    import_fixture()
+    pass #import_fixture()
     # if not frappe.conf.get("remove_developer_mode") : 
     #     frappe.conf.pop("remove_developer_mode")
     #     frappe.conf.pop("developer_mode")

@@ -63,5 +63,18 @@
   "name": "7e53d2e3d7",
   "source_text": "Email verification failed.",
   "translated_text": "La vérification de l’adresse e-mail a échoué."
+ },
+ {
+  "context": null,
+  "contributed": 0,
+  "contribution_docname": null,
+  "contribution_status": "",
+  "docstatus": 0,
+  "doctype": "Translation",
+  "language": "fr",
+  "modified": "2023-10-30 21:31:31.861335",
+  "name": "466055b4f3",
+  "source_text": "Sales Order",
+  "translated_text": "Demande client"
  }
 ]

@@ -12,6 +12,9 @@
   "client_diff\u00e9rent_du_stagiaire",
   "column_break_ttnx",
   "contact_stagiaire",
+  "section_break_ojwy",
+  "accompagnant",
+  "column_break_tjjk",
   "section_break_fxya",
   "amended_from",
   "facturation_tab",
@@ -129,17 +132,32 @@
    "hidden": 1,
    "label": "Prix appliqu\u00e9",
    "options": "Item Price"
+  },
+  {
+   "fieldname": "section_break_ojwy",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "accompagnant",
+   "fieldtype": "Link",
+   "label": "Accompagnant",
+   "options": "User"
+  },
+  {
+   "fieldname": "column_break_tjjk",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
- "is_submittable": 1,
  "links": [
   {
+   "group": "RDV",
    "link_doctype": "Appointment",
-   "link_fieldname": "vae"
+   "link_fieldname": "vae",
+   "table_fieldname": "RDV"
   }
  ],
- "modified": "2023-10-29 10:37:49.279196",
+ "modified": "2023-10-29 15:17:31.070078",
  "modified_by": "Administrator",
  "module": "VAE",
  "name": "VAE",
@@ -160,6 +178,11 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": [],
+ "states": [
+  {
+   "color": "Blue",
+   "title": "New"
+  }
+ ],
  "track_changes": 1
 }
