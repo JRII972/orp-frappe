@@ -100,11 +100,16 @@ class CustomAppointment(Appointment):
                 self.assign_agent(agent[0])
             break
         
+    def send_confirmation_email(self):
+        if self.customer_email : 
+            super().send_confirmation_email()
+        
+        
 def _check_agent_availability(agent_email, scheduled_time):
-	appointemnts_at_scheduled_time = frappe.get_all(
-		"Appointment", filters={"scheduled_time": scheduled_time}
-	)
-	for appointment in appointemnts_at_scheduled_time:
-		if appointment._assign == agent_email:
-			return False
-	return True
+    appointemnts_at_scheduled_time = frappe.get_all(
+        "Appointment", filters={"scheduled_time": scheduled_time}
+    )
+    for appointment in appointemnts_at_scheduled_time:
+        if appointment._assign == agent_email:
+            return False
+    return True

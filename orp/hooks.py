@@ -37,11 +37,11 @@ fixtures = [
     {"dt": "DocType", "filters": [
         [
             "name", "in", [
-                "Quotation",
                 "Appointment",
                 "Item",
                 "User",
-                "Sales Order"
+                "Contact",
+                "Lead"
             ]
         ]
     ]}   ,
@@ -141,6 +141,7 @@ override_doctype_class = {
 
 doctype_js = {
     "Appointment": "public/js/overrides/appointment.js",
+    # "Lead": "public/js/overrides/lead.js",
 }
 
 # doc_events = {

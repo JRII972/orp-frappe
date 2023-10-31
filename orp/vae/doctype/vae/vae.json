@@ -19,15 +19,28 @@
   "amended_from",
   "facturation_tab",
   "service",
+  "column_break_atqd",
+  "liste_de_prix",
   "column_break_tvew",
-  "item_price",
+  "prix_appliqu\u00e9",
   "section_break_diya",
   "column_break_zprz",
   "devis",
   "column_break_ypsu",
   "facture",
   "section_break_bgns",
-  "demandes_de_financement"
+  "demandes_de_financement",
+  "nouvelle_demande_de_financement",
+  "activit\u00e9_tab",
+  "open_activities_html",
+  "all_activities_section",
+  "all_activities_html",
+  "tab_4_tab",
+  "notes_html",
+  "section_break_knwm",
+  "notes",
+  "rdv_tab",
+  "liste_rdv"
  ],
  "fields": [
   {
@@ -64,8 +77,7 @@
    "in_list_view": 1,
    "label": "Contact",
    "mandatory_depends_on": "eval:doc.client_diff\u00e9rent_du_stagiaire == true ",
-   "options": "Contact",
-   "reqd": 1
+   "options": "Contact"
   },
   {
    "fieldname": "section_break_fxya",
@@ -104,7 +116,9 @@
    "fieldname": "demandes_de_financement",
    "fieldtype": "Table",
    "label": "Demandes de financement",
-   "options": "Liste demande de financement"
+   "no_copy": 1,
+   "options": "Liste demande de financement",
+   "read_only": 1
   },
   {
    "fieldname": "service",
@@ -127,13 +141,6 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "item_price",
-   "fieldtype": "Link",
-   "hidden": 1,
-   "label": "Prix appliqu\u00e9",
-   "options": "Item Price"
-  },
-  {
    "fieldname": "section_break_ojwy",
    "fieldtype": "Section Break"
   },
@@ -146,6 +153,80 @@
   {
    "fieldname": "column_break_tjjk",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_atqd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "liste_de_prix",
+   "fieldtype": "Link",
+   "label": "Liste de prix",
+   "options": "Price List"
+  },
+  {
+   "fieldname": "nouvelle_demande_de_financement",
+   "fieldtype": "Button",
+   "label": "Nouvelle demande de financement"
+  },
+  {
+   "fetch_from": ".price_list_rate",
+   "fieldname": "prix_appliqu\u00e9",
+   "fieldtype": "Currency",
+   "label": "Prix appliqu\u00e9 ",
+   "options": "Item Price",
+   "read_only": 1
+  },
+  {
+   "fieldname": "activit\u00e9_tab",
+   "fieldtype": "Tab Break",
+   "label": "Activit\u00e9"
+  },
+  {
+   "fieldname": "open_activities_html",
+   "fieldtype": "HTML",
+   "label": "Open Activities HTML"
+  },
+  {
+   "fieldname": "all_activities_section",
+   "fieldtype": "Section Break",
+   "label": "All Activities"
+  },
+  {
+   "fieldname": "all_activities_html",
+   "fieldtype": "HTML",
+   "label": "All Activities HTML"
+  },
+  {
+   "fieldname": "tab_4_tab",
+   "fieldtype": "Tab Break",
+   "label": "Comments"
+  },
+  {
+   "fieldname": "notes_html",
+   "fieldtype": "HTML",
+   "label": "Notes HTML"
+  },
+  {
+   "fieldname": "section_break_knwm",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Table",
+   "label": "Notes",
+   "options": "CRM Note"
+  },
+  {
+   "fieldname": "rdv_tab",
+   "fieldtype": "Tab Break",
+   "label": "RDV"
+  },
+  {
+   "fieldname": "liste_rdv",
+   "fieldtype": "Table",
+   "label": "Rendez-vous programmez",
+   "options": "Liste RDV"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -157,7 +238,7 @@
    "table_fieldname": "RDV"
   }
  ],
- "modified": "2023-10-29 15:17:31.070078",
+ "modified": "2023-10-31 22:44:53.336428",
  "modified_by": "Administrator",
  "module": "VAE",
  "name": "VAE",
