@@ -12,18 +12,35 @@ from erpnext.crm.utils import (
 )
 
 class VAE(CRMNote):
-    def on_change(self):
-        if not self.devis : 
-            devis = frappe.db.get_list('Quotation',
-                filters={
-                    'status': 'Open'
-                },
-                fields=['subject', 'date'],
-                order_by='date desc',
-                start=10,
-                page_length=20,
-                as_list=True
-            )
+    def before_save(self):
+        self.demandes_de_financement = []
+        
+        financements = frappe.db.get_all('Demande de financement', filters={
+                'source_cible': self.doctype,
+                'cible': self.name,
+            }, fields=['name', 'demande_de_financement', 'status'])
+        
+        print(financements)
+        print('financements ----------------------------------')
+        for financement in financements : 
+            self.append('demandes_de_financement', {
+                'date_de_la_demande' : financement['demande_de_financement'],
+                'financement' : financement['name'],
+                'status' : financement['status'],
+            })
+        
+    # def on_change(self):
+    #     if not self.devis : 
+    #         devis = frappe.db.get_list('Quotation',
+    #             filters={
+    #                 'status': 'Open'
+    #             },
+    #             fields=['subject', 'date'],
+    #             order_by='date desc',
+    #             start=10,
+    #             page_length=20,
+    #             as_list=True
+    #         )
                 
 @frappe.whitelist()
 @frappe.validate_and_sanitize_search_inputs

@@ -35,6 +35,22 @@ function prettyRow(frm){
           }
             
     }
+    frappe.db.get_doc('DocType','Demande de financement').then(doc => {
+        for (const row of frm.doc.demandes_de_financement){
+            console.log(row.status)
+            d = document.querySelector('div[data-name="'+ row.name + '"]')
+            t = d.querySelector('div[data-fieldname="status"]')
+            t.style.fontWeight = 'bold'
+            doc.states.forEach((data, index) => {
+                if (data.title == row.status){
+                    // d.style.backgroundColor = 'var(--warning)' 
+                    d.querySelector('div[class="data-row row"]').style.color = 'var(--' + data.color.toLowerCase().split(' ').join('-')+ ')'
+                    console.log('var(--' + data.color.toLowerCase().split(' ').join('-')+ ')')
+                }
+            })    
+        }
+    })
+    
 }
 
 frappe.ui.form.on("VAE", {
