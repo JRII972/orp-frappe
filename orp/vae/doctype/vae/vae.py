@@ -12,8 +12,19 @@ from erpnext.crm.utils import (
 )
 
 class VAE(CRMNote):
-    pass
-    
+    def on_change(self):
+        if not self.devis : 
+            devis = frappe.db.get_list('Quotation',
+                filters={
+                    'status': 'Open'
+                },
+                fields=['subject', 'date'],
+                order_by='date desc',
+                start=10,
+                page_length=20,
+                as_list=True
+            )
+                
 @frappe.whitelist()
 @frappe.validate_and_sanitize_search_inputs
 def find_contact_customer(doctype, txt, searchfield, start, page_len, filters):
@@ -41,11 +52,8 @@ def find_contact_customer(doctype, txt, searchfield, start, page_len, filters):
             }, as_list=1)
     
 @frappe.whitelist()
-def add_appointment(docname, contact, contactType, description, dure, status, time):
-    AppointmentType = frappe.get_doc({
-    'doctype': 'Type de rendez vous',
-    'type': 'New Task'
-    })
+def add_appointment(docname, contact, contactType, dure, status, time, description = ""):
+    AppointmentType = frappe.get_doc('Type de rendez vous', 'New Task')
     AppointmentType.save()
     doc = frappe.new_doc('Appointment')
     contact = frappe.get_doc(contactType, contact)

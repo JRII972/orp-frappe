@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:FNC-{source_cible}-{demandeur}-{#}",
  "creation": "2023-10-27 17:20:43.824948",
  "default_view": "List",
  "doctype": "DocType",
@@ -39,9 +40,11 @@
   "facture_et_devis",
   "liste_action",
   "section_break_jijf",
+  "article",
   "status",
   "column_break_nunh",
-  "titre"
+  "titre",
+  "id_financement"
  ],
  "fields": [
   {
@@ -246,14 +249,26 @@
    "in_list_view": 1,
    "label": "Status",
    "options": "Brouillon\nEn attente d'envoie\nEn attente de validation\nNavette\nValid\u00e9\nEn attente de paiement\nPartiellement pay\u00e9\nPay\u00e9\nEn attente\nAnnul\u00e9\nRefus\u00e9"
+  },
+  {
+   "fieldname": "article",
+   "fieldtype": "Link",
+   "label": "Article",
+   "options": "Item"
+  },
+  {
+   "fieldname": "id_financement",
+   "fieldtype": "Data",
+   "label": "Financement ID"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-10-29 15:09:49.835761",
+ "modified": "2023-11-01 15:55:50.609184",
  "modified_by": "Administrator",
  "module": "Financement",
  "name": "Demande de financement",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

@@ -71,6 +71,14 @@ frappe.ui.form.on("Demande de financement", {
             })
         }, __('Changer le statut'));
 
+        frm.set_query('source_cible', () => {
+            return {
+                filters: {
+                    name: ['in', ['VAE', 'Formation']]
+                }
+            }
+        })
+
         // Set indicator
         // switch (frm.doc.status) {
         //     case 'En attente d\'envoie':

@@ -1,6 +1,42 @@
 // Copyright (c) 2023, jeremy jovinac and contributors
 // For license information, please see license.txt
 
+function prettyRow(frm){
+    for (const row of frm.doc.liste_rdv){
+        console.log(row.status)
+        d = document.querySelector('div[data-name="'+ row.name + '"]')
+        t = d.querySelector('div[data-fieldname="status"]')
+        t.style.fontWeight = 'bold'
+        switch (row.status) {
+            case "Unverified":
+                if (frappe.datetime.get_day_diff(frappe.datetime.get_today(), row.date) < 3 ) {
+                    d.style.backgroundColor = 'var(--criticism-color)' 
+                    d.querySelector('div[class="data-row row"]').style.color = 'white' //'var(--text-on-red)' 
+                    t.style.color = 'white' 
+                } else if (frappe.datetime.get_today() > row.date ) { 
+                    d.style.backgroundColor = 'var(--info)' 
+                    d.querySelector('div[class="data-row row"]').style.color = 'white' 
+                    frappe.msgprint("Un rendez-vous a été placé dans le passé ?! </br> <a href='/app/appointment/" + row.appointment + "'>" + row.appointment + " </a", "Incohérence !")
+                } else {
+                    d.style.backgroundColor = 'var(--warning)' 
+                    d.querySelector('div[class="data-row row"]').style.color = 'white' 
+                    // t.style.color = 'white'
+                }
+                break;
+                case 'Open':
+                    d.querySelector('div[class="data-row row"]').style.color = 'white' 
+                    d.style.backgroundColor = 'var(--success)' 
+              // Expected output: "Mangoes and papayas are $2.79 a pound."
+              break;
+            case 'Closed':
+            default:
+                d.style.backgroundColor = 'var(--alert-bg-secondary)' 
+                d.querySelector('div[class="data-row row"]').style.color = '' 
+          }
+            
+    }
+}
+
 frappe.ui.form.on("VAE", {
 	refresh(frm) {
         // show_notes() {
@@ -54,6 +90,37 @@ frappe.ui.form.on("VAE", {
                         vae: frm.doc.name
                     }
                 }
+            })
+
+            frappe.db.get_list('Appointment', {
+                fields: ['name', 'status', 'type', 'scheduled_time', 'durée', 'heure_de_fin'],
+                filters: {
+                    vae: frm.doc.name
+                },
+                order_by : 'scheduled_time desc'
+            }).then(records => {
+                frm.doc.liste_rdv = []
+                _heures_effectuer = 0
+                _heures_planifier = 0
+                records.forEach((data, index) => {
+                    let row = frm.add_child('liste_rdv', {
+                        appointment: data.name,
+                        status: data.status,
+                        type: data.type,
+                        date: data.scheduled_time,
+                        durée: data.durée,
+                        heure_de_fin: data.heure_de_fin
+                    });
+                    
+                    if ( data.status == 'Closed' ) { _heures_effectuer += data.durée }
+                    if ( data.status != 'Cancel' ) { _heures_planifier += data.durée }
+                })
+                frm.set_value('heures_effectuer', _heures_effectuer)
+                frm.set_value('heures_planifier', _heures_planifier)
+                frm.refresh_field('heures_planifier');
+                frm.refresh_field('heures_effectuer');
+                frm.refresh_field('liste_rdv');
+                prettyRow(frm)
             })
             
 
@@ -116,6 +183,7 @@ frappe.ui.form.on("VAE", {
                             callback: (r) => {
                                 console.log(r.message)
                                 d.hide();
+                                cur_frm.refresh()
                             },
                             error: (r) => {
                                 // on error
@@ -136,6 +204,27 @@ frappe.ui.form.on("VAE", {
                     }
                 }
                 
+            })
+
+            frm.add_custom_button('Editer devis', () => {
+                if (frm.doc.devis == undefined) {
+                    frappe.new_doc('Quotation', {},
+                    doc => {
+                        frm.doc.items.forEach((item, index) =>{
+                            var row = frappe.model.add_child(doc, "items");
+                            row.item_code = item.item_code;
+                            row.qty = item.qty;
+                            row.rate = item.rate;
+                            row.amount = item.amount;
+                        })
+                        var row = frappe.model.add_child(doc, "items");
+                        row.item_code = frm.doc.service;
+                        row.qty = Math.floor(frm.doc.heures_planifier / 60 / 60 )
+                        row.rate = frm.doc.prix_appliqué;
+                        row.amount = item.amount;
+                        doc.party_name = frm.doc.client
+                })
+                }
             })
         }
         
@@ -235,5 +324,61 @@ frappe.ui.form.on("VAE", {
             });
         }
     },
-    
+    items(frm){
+    }
 });
+
+
+frappe.ui.form.on("Quotation Item", {
+    item_code(frm, cdt, cdn) {
+        let row = frappe.get_doc(cdt, cdn);
+
+        frappe.db.get_list('Item Price', {
+            fields: ['name', 'price_list', 'price_list_rate'],
+            filters: {
+                item_code: row.item_code,
+                price_list: frm.doc.liste_de_prix
+            }
+         }).then(doc => {
+                var _list = []           
+
+                doc.forEach((data, index) => _list.push(data.price_list_rate))
+
+                row.rate = _list[0]
+                row.price_list_rate = _list[0]
+                row.base_price_list_rate = _list[0]
+                // row.save()
+                frm.refresh_field('items')
+                console.log(doc)
+            })
+
+        frappe.db.get_doc('Item', row.item_code).then( doc => {
+            row.item_name = doc.item_name
+            row.description = doc.description
+            row.item_group = doc.item_group
+            row.brand = doc.brand
+            row.image = doc.image
+            row.uom = doc.stock_uom
+            row.conversion_factor = 1 // doc.conversion_factor // TODO:change that
+            frm.refresh_field('items')
+        })
+    },
+    items_add(frm, cdt, cdn) { 
+        let row = frappe.get_doc(cdt, cdn);
+        row.qty = 1
+        frm.refresh_field('items')
+    },
+    calculate: function(frm, cdt, cdn) {
+		let row = frappe.get_doc(cdt, cdn);
+		frappe.model.set_value(cdt, cdn, "amount", flt(row.qty) * flt(row.rate));
+		frappe.model.set_value(cdt, cdn, "base_rate", flt(frm.doc.conversion_rate) * flt(row.rate));
+		frappe.model.set_value(cdt, cdn, "base_amount", flt(frm.doc.conversion_rate) * flt(row.amount));
+		frm.trigger("calculate_total");
+	},
+	qty: function(frm, cdt, cdn) {
+		frm.trigger("calculate", cdt, cdn);
+	},
+	rate: function(frm, cdt, cdn) {
+		frm.trigger("calculate", cdt, cdn);
+	}
+})

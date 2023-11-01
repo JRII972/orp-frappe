@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "prompt",
  "creation": "2023-10-27 16:44:28.515803",
  "default_view": "List",
  "doctype": "DocType",
@@ -23,6 +24,14 @@
   "liste_de_prix",
   "column_break_tvew",
   "prix_appliqu\u00e9",
+  "nombre_dheures_section",
+  "heures_planifier",
+  "column_break_lwii",
+  "heures_effectuer",
+  "column_break_flfs",
+  "heures_facturer",
+  "prestation_annexe_section",
+  "items",
   "section_break_diya",
   "column_break_zprz",
   "devis",
@@ -40,7 +49,8 @@
   "section_break_knwm",
   "notes",
   "rdv_tab",
-  "liste_rdv"
+  "liste_rdv",
+  "dashboard_tab"
  ],
  "fields": [
   {
@@ -220,28 +230,73 @@
   {
    "fieldname": "rdv_tab",
    "fieldtype": "Tab Break",
+   "is_virtual": 1,
    "label": "RDV"
   },
   {
    "fieldname": "liste_rdv",
    "fieldtype": "Table",
+   "is_virtual": 1,
    "label": "Rendez-vous programmez",
-   "options": "Liste RDV"
+   "options": "Liste RDV",
+   "read_only": 1
+  },
+  {
+   "fieldname": "nombre_dheures_section",
+   "fieldtype": "Section Break",
+   "label": "Nombre d'heures"
+  },
+  {
+   "fieldname": "column_break_lwii",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_flfs",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "heures_planifier",
+   "fieldtype": "Duration",
+   "hide_days": 1,
+   "hide_seconds": 1,
+   "label": "Planifier"
+  },
+  {
+   "fieldname": "heures_effectuer",
+   "fieldtype": "Duration",
+   "label": "Effectuer",
+   "read_only": 1
+  },
+  {
+   "fieldname": "heures_facturer",
+   "fieldtype": "Duration",
+   "hide_days": 1,
+   "hide_seconds": 1,
+   "label": "Facturer"
+  },
+  {
+   "fieldname": "prestation_annexe_section",
+   "fieldtype": "Section Break",
+   "label": "Prestation annexe"
+  },
+  {
+   "fieldname": "dashboard_tab",
+   "fieldtype": "Tab Break",
+   "label": "Connections"
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "options": "Quotation Item"
   }
  ],
  "index_web_pages_for_search": 1,
- "links": [
-  {
-   "group": "RDV",
-   "link_doctype": "Appointment",
-   "link_fieldname": "vae",
-   "table_fieldname": "RDV"
-  }
- ],
- "modified": "2023-10-31 22:44:53.336428",
+ "links": [],
+ "modified": "2023-11-01 15:22:02.681730",
  "modified_by": "Administrator",
  "module": "VAE",
  "name": "VAE",
+ "naming_rule": "Set by user",
  "owner": "Administrator",
  "permissions": [
   {

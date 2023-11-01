@@ -4,6 +4,8 @@ import frappe
 from frappe import _
 from erpnext.crm.doctype.appointment.appointment import Appointment, _get_employee_from_user, _get_agents_sorted_by_asc_workload
 from frappe.utils import get_url, getdate, now
+from datetime import datetime # from python std library
+from frappe.utils import add_to_date
 
 class CustomAppointment(Appointment):
     def find_contact_by_email(self):
@@ -103,7 +105,28 @@ class CustomAppointment(Appointment):
     def send_confirmation_email(self):
         if self.customer_email : 
             super().send_confirmation_email()
+            
+    def on_change(self):
+        super().on_change()
+        print(self.scheduled_time)
+        if type(self.scheduled_time) == str : self.scheduled_time = datetime.strptime(self.scheduled_time, "%Y-%m-%d %H:%M:%S")
+        if type(self.durée) == str : self.durée = int(self.durée)
+        self.heure_de_fin = add_to_date(self.scheduled_time, seconds=self.durée, as_datetime=True)
+        if self.calendar_event :
+            cal_event = frappe.get_doc("Event", self.calendar_event)
+            if self.status in ["Closed", "Cancelled"] : 
+                cal_event.status = "Cancelled"
+                cal_event.save(ignore_permissions=True)
+            if self.status in ["Open", "Unverified"] : 
+                cal_event.status = "Open"
+                cal_event.save(ignore_permissions=True)
         
+    def before_save(self):
+        # super().val TODO: check on update
+        if self.calendar_event :
+            cal_event = frappe.get_doc("Event", self.calendar_event)
+            if cal_event.status == "Completed" : self.status = "Close"
+            if cal_event.status == "Cancelled" : self.status = "Cancelled"
         
 def _check_agent_availability(agent_email, scheduled_time):
     appointemnts_at_scheduled_time = frappe.get_all(
