@@ -10,12 +10,14 @@
  "field_order": [
   "titre",
   "module",
-  "etat",
+  "status",
+  "type",
   "color",
   "column_break_ddmd",
   "formation",
   "programme_formation",
   "formateur",
+  "planification",
   "column_break_nrmo",
   "d\u00e9but",
   "all_day",
@@ -53,10 +55,10 @@
   {
    "fieldname": "d\u00e9but",
    "fieldtype": "Datetime",
+   "in_list_view": 1,
    "label": "D\u00e9but"
   },
   {
-   "depends_on": "eval:doc.all_day == false",
    "fieldname": "fin",
    "fieldtype": "Datetime",
    "label": "Fin",
@@ -71,6 +73,8 @@
   {
    "fieldname": "formation",
    "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Formation",
    "options": "Formation"
   },
@@ -79,6 +83,7 @@
    "fetch_from": "null.",
    "fieldname": "programme_formation",
    "fieldtype": "Link",
+   "in_standard_filter": 1,
    "label": "Programme formation",
    "options": "Programme Formation"
   },
@@ -87,6 +92,8 @@
    "fetch_if_empty": 1,
    "fieldname": "formateur",
    "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Formateur",
    "options": "User"
   },
@@ -111,35 +118,54 @@
    "label": "Contenue Copy Copy"
   },
   {
-   "default": "Programmer",
-   "fieldname": "etat",
-   "fieldtype": "Select",
-   "label": "Etat",
-   "options": "\nProgrammer\nFait\nD\u00e9placer\nAnnul\u00e9"
-  },
-  {
    "fieldname": "color",
    "fieldtype": "Color",
    "label": "Couleur d'affichage"
   },
   {
-   "depends_on": "eval:doc.all_day == false",
+   "fetch_from": ".dur\u00e9e",
    "fieldname": "dur\u00e9e",
    "fieldtype": "Duration",
    "hide_days": 1,
    "hide_seconds": 1,
-   "label": "Dur\u00e9e"
+   "label": "Dur\u00e9e",
+   "mandatory_depends_on": "!all_day "
   },
   {
    "default": "0",
    "fieldname": "all_day",
    "fieldtype": "Check",
    "label": "Toute la journ\u00e9e ?"
+  },
+  {
+   "fetch_from": ".",
+   "fetch_if_empty": 1,
+   "fieldname": "planification",
+   "fieldtype": "Link",
+   "label": "Planification",
+   "options": "Planification cours"
+  },
+  {
+   "default": "Programmer",
+   "fieldname": "type",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Type",
+   "options": "Type de cours"
+  },
+  {
+   "default": "Programmer",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Etat",
+   "options": "\nProgrammer\nFait\nD\u00e9placer\nAnnul\u00e9"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-07-27 13:28:09.843281",
+ "modified": "2023-11-02 05:48:33.960306",
  "modified_by": "Administrator",
  "module": "Formation",
  "name": "Cours",

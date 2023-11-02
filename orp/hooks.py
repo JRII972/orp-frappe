@@ -144,13 +144,16 @@ doctype_js = {
     # "Lead": "public/js/overrides/lead.js",
 }
 
-# doc_events = {
-#	"*": {
-#		"on_update": "method",
-#		"on_cancel": "method",
-#		"on_trash": "method"
-#	}
-# }
+doc_events = {
+	# "*": {
+	# 	"on_update": "method",
+	# 	"on_cancel": "method",
+	# 	"on_trash": "method"
+	# }
+    "Quotation" : {
+        "on_update" : "orp.crud_events.check_quotation"
+    }
+}
 
 # Scheduled Tasks
 # ---------------

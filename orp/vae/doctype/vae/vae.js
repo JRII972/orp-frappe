@@ -115,6 +115,7 @@ frappe.ui.form.on("VAE", {
                 },
                 order_by : 'scheduled_time desc'
             }).then(records => {
+                // TODO: calc that in server side
                 frm.doc.liste_rdv = []
                 _heures_effectuer = 0
                 _heures_planifier = 0
@@ -222,24 +223,41 @@ frappe.ui.form.on("VAE", {
                 
             })
 
+            
             frm.add_custom_button('Editer devis', () => {
                 if (frm.doc.devis == undefined) {
-                    frappe.new_doc('Quotation', {},
-                    doc => {
-                        frm.doc.items.forEach((item, index) =>{
-                            var row = frappe.model.add_child(doc, "items");
-                            row.item_code = item.item_code;
-                            row.qty = item.qty;
-                            row.rate = item.rate;
-                            row.amount = item.amount;
+                    frappe.db.get_doc('Item', frm.doc.service)
+                    .then(item_service => {
+                        frappe.new_doc('Quotation', {},
+                            doc => {
+                                doc.party_name = frm.doc.client
+                                doc.vae = frm.doc.name
+                                doc.order_type = "VAE"
+
+                                frm.doc.items.forEach((item, index) =>{
+                                    var row = frappe.model.add_child(doc, "items");
+                                    row.item_code = item.item_code;
+                                    row.item_name = item.item_name;
+                                    row.uom = item.uom;
+                                    row.qty = item.qty;
+                                    row.rate = item.rate;
+                                    row.amount = item.amount;
+                                    row.description = item.description;
+                                })
+                                var row = frappe.model.add_child(doc, "items");
+                                row.item_code = item_service.name;
+                                row.item_name = item_service.item_name;
+                                row.uom = item_service.stock_uom;
+                                row.description = item_service.description;
+                                row.qty = Math.floor(frm.doc.heures_planifier / 60 / 60 )
+                                row.rate = frm.doc.prix_appliqué;
+                                row.amount = item.amount;
+                            
                         })
-                        var row = frappe.model.add_child(doc, "items");
-                        row.item_code = frm.doc.service;
-                        row.qty = Math.floor(frm.doc.heures_planifier / 60 / 60 )
-                        row.rate = frm.doc.prix_appliqué;
-                        row.amount = item.amount;
-                        doc.party_name = frm.doc.client
-                })
+                    })
+                    
+                } else {
+                    frappe.set_route(['Form', 'Quotation', frm.doc.devis])
                 }
             })
         }
@@ -341,6 +359,15 @@ frappe.ui.form.on("VAE", {
         }
     },
     items(frm){
+    },
+    calculate_percet_timespend(frm){
+        frm.set_value('heures_faites', frm.doc.heures_effectuer / frm.doc.heures_planifier * 100)
+    },
+    heures_planifier(frm){
+        frm.trigger("calculate_percet_timespend");
+    },
+    heures_effectuer(frm){
+        frm.trigger("calculate_percet_timespend");
     }
 });
 

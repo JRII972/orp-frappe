@@ -16,6 +16,8 @@
   "section_break_ojwy",
   "accompagnant",
   "column_break_tjjk",
+  "status",
+  "heures_faites",
   "section_break_fxya",
   "amended_from",
   "facturation_tab",
@@ -106,7 +108,8 @@
    "fieldname": "devis",
    "fieldtype": "Link",
    "label": "Devis",
-   "options": "Quotation"
+   "options": "Quotation",
+   "read_only": 1
   },
   {
    "fieldname": "column_break_ypsu",
@@ -116,7 +119,8 @@
    "fieldname": "facture",
    "fieldtype": "Link",
    "label": "Facture",
-   "options": "Quotation"
+   "options": "Quotation",
+   "read_only": 1
   },
   {
    "fieldname": "section_break_bgns",
@@ -288,11 +292,24 @@
    "fieldname": "items",
    "fieldtype": "Table",
    "options": "Quotation Item"
+  },
+  {
+   "fieldname": "heures_faites",
+   "fieldtype": "Percent",
+   "in_list_view": 1,
+   "label": "Heures faites",
+   "read_only": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "\nA trait\u00e9\nEn pause\nAnnul\u00e9\nEn cours\nFini"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-11-01 15:22:02.681730",
+ "modified": "2023-11-01 23:40:34.300862",
  "modified_by": "Administrator",
  "module": "VAE",
  "name": "VAE",

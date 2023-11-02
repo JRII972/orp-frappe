@@ -1,0 +1,153 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-11-02 00:46:20.225760",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "formateur",
+  "column_break_gnbr",
+  "type",
+  "section_break_rkjj",
+  "nbr_cours",
+  "column_break_dcut",
+  "all_day",
+  "dur\u00e9e",
+  "column_break_hhuc",
+  "dur\u00e9e_totale",
+  "etat_section",
+  "dure\u00e9_effectu\u00e9",
+  "nombre_de_cours_donn\u00e9e",
+  "column_break_ehwm",
+  "_fait",
+  "section_break_zgei",
+  "programme_formation",
+  "column_break_pzbx",
+  "titre"
+ ],
+ "fields": [
+  {
+   "fieldname": "formateur",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Formateur",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_rkjj",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "nbr_cours",
+   "fieldtype": "Int",
+   "label": "Nombre de cours",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "column_break_dcut",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "!all_day",
+   "fieldname": "dur\u00e9e",
+   "fieldtype": "Duration",
+   "hide_days": 1,
+   "hide_seconds": 1,
+   "label": "Dur\u00e9e"
+  },
+  {
+   "fieldname": "column_break_hhuc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "dur\u00e9e_totale",
+   "fieldtype": "Duration",
+   "hide_days": 1,
+   "hide_seconds": 1,
+   "in_list_view": 1,
+   "label": "Dur\u00e9e totale"
+  },
+  {
+   "fieldname": "column_break_gnbr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Type",
+   "options": "Type de cours",
+   "reqd": 1
+  },
+  {
+   "fieldname": "etat_section",
+   "fieldtype": "Section Break",
+   "label": "Etat"
+  },
+  {
+   "fieldname": "dure\u00e9_effectu\u00e9",
+   "fieldtype": "Duration",
+   "in_list_view": 1,
+   "label": "Dure\u00e9 effectu\u00e9"
+  },
+  {
+   "fieldname": "column_break_ehwm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "_fait",
+   "fieldtype": "Percent",
+   "label": "% fait"
+  },
+  {
+   "fieldname": "section_break_zgei",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "programme_formation",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "in_list_view": 1,
+   "options": "Programme Formation"
+  },
+  {
+   "fieldname": "column_break_pzbx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "titre",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "in_list_view": 1,
+   "label": "Titre",
+   "options": "Type de cours"
+  },
+  {
+   "default": "0",
+   "fieldname": "all_day",
+   "fieldtype": "Check",
+   "label": " Toute la journ\u00e9e ?"
+  },
+  {
+   "fieldname": "nombre_de_cours_donn\u00e9e",
+   "fieldtype": "Int",
+   "label": "Nombre de cours donn\u00e9e",
+   "non_negative": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2023-11-02 05:23:16.424477",
+ "modified_by": "Administrator",
+ "module": "Formation",
+ "name": "Planification cours",
+ "owner": "Administrator",
+ "permissions": [],
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "titre"
+}

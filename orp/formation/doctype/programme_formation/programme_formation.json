@@ -7,12 +7,28 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "programme_tab",
+  "dur\u00e9e_effectu\u00e9",
+  "column_break_gvus",
+  "_fait",
+  "section_break_fzhn",
   "is_template",
   "nom",
   "dur\u00e9e",
   "mod\u00e8le",
-  "formateur",
-  "formation"
+  "column_break_wdut",
+  "formation",
+  "dur\u00e9e_planifi\u00e9",
+  "color",
+  "section_break_urho",
+  "planification_cours",
+  "cours_tab",
+  "activit\u00e9_tab",
+  "open_activities_html",
+  "all_activities_section",
+  "all_activities_html",
+  "note_tab",
+  "notes_html"
  ],
  "fields": [
   {
@@ -29,19 +45,15 @@
    "label": "Dur\u00e9e"
   },
   {
+   "depends_on": "frm.is_new()",
    "fieldname": "mod\u00e8le",
    "fieldtype": "Link",
    "label": "Mod\u00e8le",
    "options": "Modele de programme formation"
   },
   {
-   "fieldname": "formateur",
-   "fieldtype": "Link",
-   "label": "Formateur",
-   "options": "User"
-  },
-  {
    "default": "0",
+   "depends_on": "frm.is_new()",
    "fieldname": "is_template",
    "fieldtype": "Check",
    "label": "Est un mod\u00e8le",
@@ -52,11 +64,107 @@
    "fieldtype": "Link",
    "label": "Formation",
    "options": "Formation"
+  },
+  {
+   "fieldname": "column_break_wdut",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_urho",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "planification_cours",
+   "fieldtype": "Table",
+   "label": "Planification cours",
+   "options": "Planification cours"
+  },
+  {
+   "fieldname": "dur\u00e9e_planifi\u00e9",
+   "fieldtype": "Duration",
+   "hide_days": 1,
+   "hide_seconds": 1,
+   "label": "Dur\u00e9e planifi\u00e9",
+   "read_only": 1
+  },
+  {
+   "fieldname": "programme_tab",
+   "fieldtype": "Tab Break",
+   "label": "Programme"
+  },
+  {
+   "fieldname": "activit\u00e9_tab",
+   "fieldtype": "Tab Break",
+   "label": "Activit\u00e9"
+  },
+  {
+   "fieldname": "cours_tab",
+   "fieldtype": "Tab Break",
+   "label": "Cours"
+  },
+  {
+   "fieldname": "open_activities_html",
+   "fieldtype": "HTML",
+   "label": "Open Activities HTML"
+  },
+  {
+   "fieldname": "all_activities_section",
+   "fieldtype": "Section Break",
+   "label": "All Activities"
+  },
+  {
+   "fieldname": "note_tab",
+   "fieldtype": "Tab Break",
+   "label": "Note"
+  },
+  {
+   "fieldname": "notes_html",
+   "fieldtype": "HTML",
+   "label": "Notes HTML"
+  },
+  {
+   "fieldname": "all_activities_html",
+   "fieldtype": "HTML",
+   "label": "All Activities"
+  },
+  {
+   "fieldname": "color",
+   "fieldtype": "Color",
+   "label": "Couleur d'affichage",
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "dur\u00e9e_effectu\u00e9",
+   "fieldtype": "Duration",
+   "hide_days": 1,
+   "hide_seconds": 1,
+   "label": "Dur\u00e9e effectu\u00e9",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_gvus",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "_fait",
+   "fieldtype": "Percent",
+   "in_list_view": 1,
+   "label": "% fait",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_fzhn",
+   "fieldtype": "Section Break"
   }
  ],
  "index_web_pages_for_search": 1,
- "links": [],
- "modified": "2023-07-27 11:47:31.852172",
+ "links": [
+  {
+   "link_doctype": "Cours",
+   "link_fieldname": "programme_formation"
+  }
+ ],
+ "modified": "2023-11-02 05:47:29.671699",
  "modified_by": "Administrator",
  "module": "Formation",
  "name": "Programme Formation",

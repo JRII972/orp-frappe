@@ -1,0 +1,76 @@
+{
+ "charts": [
+  {
+   "chart_name": "Evolution vae",
+   "label": "Evolution des VAE "
+  }
+ ],
+ "content": "[{\"id\":\"D1X3qkk4yl\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Validation des acquis de l\u2019exp\u00e9rience</span>\",\"col\":12}},{\"id\":\"wzBn3NK7Om\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Evolution des VAE \",\"col\":12}},{\"id\":\"UuZfKXPytM\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Nouvelle VAE\",\"col\":3}},{\"id\":\"lVv_aeeeyj\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"CRM\",\"col\":3}},{\"id\":\"O8DimEAkaI\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"kQInqS1_RA\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"RDV \u00e0 valider\",\"col\":4}},{\"id\":\"ZlCFEi9MMK\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"A trait\u00e9\",\"col\":4}},{\"id\":\"TnaVrGXVNR\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Demande de financement\",\"col\":4}},{\"id\":\"38TP-_RG8c\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Suivie paiement\",\"col\":4}},{\"id\":\"8GEjEMUE-2\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Devis\",\"col\":4}}]",
+ "creation": "2023-11-01 23:28:51.031399",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "dashboard-list",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "Les VAE",
+ "links": [],
+ "modified": "2023-11-01 23:55:19.318432",
+ "modified_by": "Administrator",
+ "module": "orp",
+ "name": "Les VAE",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [
+  {
+   "document_type": "Appointment",
+   "label": "RDV \u00e0 valider",
+   "quick_list_filter": "[[\"Appointment\",\"status\",\"=\",\"Unverified\",false],[\"Appointment\",\"vae\",\"!=\",null,false]]"
+  },
+  {
+   "document_type": "VAE",
+   "label": "A trait\u00e9",
+   "quick_list_filter": "[[\"VAE\",\"status\",\"=\",\"A trait\u00e9\",false]]"
+  },
+  {
+   "document_type": "Demande de financement",
+   "label": "Demande de financement",
+   "quick_list_filter": "[[\"Demande de financement\",\"source_cible\",\"=\",\"VAE\",false],[\"Demande de financement\",\"status\",\"in\",[\"Brouillon\",\"En attente d'envoie\",\"En attente de validation\",\"Navette\",null],false]]"
+  },
+  {
+   "document_type": "Demande de financement",
+   "label": "Suivie paiement",
+   "quick_list_filter": "[[\"Demande de financement\",\"status\",\"in\",[\"En attente de paiement\",\"Partiellement pay\u00e9\",null],false],[\"Demande de financement\",\"source_cible\",\"=\",\"VAE\",false]]"
+  },
+  {
+   "document_type": "Quotation",
+   "label": "Devis",
+   "quick_list_filter": "[[\"Quotation\",\"status\",\"not in\",[\"Lost\",\"Cancelled\",\"Ordered\",\"Expired\",null],false],[\"Quotation\",\"order_type\",\"=\",\"VAE\",false]]"
+  }
+ ],
+ "roles": [],
+ "sequence_id": 4.0,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "New",
+   "label": "Nouvelle VAE",
+   "link_to": "VAE",
+   "stats_filter": "[[\"VAE\",\"status\",\"not in\",[\"Annul\u00e9\",\"Fini\",null],false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "CRM",
+   "link_to": "CRM",
+   "type": "Dashboard"
+  }
+ ],
+ "title": "Les VAE"
+}

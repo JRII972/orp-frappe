@@ -1,0 +1,99 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-11-02 02:44:55.003003",
+ "default_view": "List",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "cours",
+  "etat",
+  "column_break_giel",
+  "titre",
+  "formateur",
+  "column_break_eutl",
+  "d\u00e9but",
+  "all_day",
+  "dur\u00e9e",
+  "section_break_lihx",
+  "objectif_du_module"
+ ],
+ "fields": [
+  {
+   "fieldname": "cours",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Cours",
+   "options": "Cours"
+  },
+  {
+   "fieldname": "etat",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Etat",
+   "options": "\nProgrammer\nFait\nD\u00e9placer\nAnnul\u00e9"
+  },
+  {
+   "fieldname": "column_break_giel",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "titre",
+   "fieldtype": "Data",
+   "label": "Sujet"
+  },
+  {
+   "default": "0",
+   "depends_on": "all_day",
+   "fieldname": "all_day",
+   "fieldtype": "Check",
+   "label": "Toute la journ\u00e9e ?"
+  },
+  {
+   "fieldname": "column_break_eutl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "d\u00e9but",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "D\u00e9but"
+  },
+  {
+   "depends_on": "!all_day",
+   "fieldname": "dur\u00e9e",
+   "fieldtype": "Duration",
+   "hide_days": 1,
+   "hide_seconds": 1,
+   "in_list_view": 1,
+   "label": "Dur\u00e9e"
+  },
+  {
+   "fieldname": "section_break_lihx",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "objectif_du_module",
+   "fieldtype": "Text Editor"
+  },
+  {
+   "fieldname": "formateur",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Formateur",
+   "options": "User"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2023-11-02 03:43:24.945501",
+ "modified_by": "Administrator",
+ "module": "Formation",
+ "name": "Liste des cours",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
