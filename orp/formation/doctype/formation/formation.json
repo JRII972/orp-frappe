@@ -9,6 +9,7 @@
  "engine": "InnoDB",
  "field_order": [
   "nom",
+  "status",
   "mod\u00e8le",
   "column_break_ktpo",
   "type",
@@ -96,11 +97,33 @@
    "label": "Type",
    "mandatory_depends_on": "eval:((doc.mod\u00e8le == \"\") || (doc.mod\u00e8le == undefined))",
    "options": "Item Group"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "\nEn cr\u00e9ation\nEn cours\nEn pause\nAnnul\u00e9\nFini"
   }
  ],
  "index_web_pages_for_search": 1,
- "links": [],
- "modified": "2023-07-27 12:10:16.356422",
+ "links": [
+  {
+   "group": "Organisation",
+   "link_doctype": "Programme Formation",
+   "link_fieldname": "formation"
+  },
+  {
+   "group": "Cours",
+   "link_doctype": "Cours",
+   "link_fieldname": "formation"
+  },
+  {
+   "group": "Cours",
+   "link_doctype": "Rapport de cours",
+   "link_fieldname": "formation"
+  }
+ ],
+ "modified": "2023-11-02 13:59:39.328010",
  "modified_by": "Administrator",
  "module": "Formation",
  "name": "Formation",

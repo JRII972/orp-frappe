@@ -38,7 +38,7 @@ frappe.ui.form.on("Programme Formation", {
                     },
                     {
                         label: 'Etat',
-                        fieldname: 'etat',
+                        fieldname: 'status',
                         fieldtype: 'Select',
                         options: '\nProgrammer\nFait\nDéplacer\nAnnulé',
                         default: 'Programmer', reqd : true
@@ -102,11 +102,11 @@ frappe.ui.form.on("Programme Formation", {
                             cours_data : values
                         }
                     }).then(r => {
-                        let row = frm.add_child('liste_des_cours', {
-                            cours: r
-                        });
+                        // let row = frm.add_child('liste_des_cours', {
+                        //     cours: r
+                        // });
                         d.hide();
-                        frm.save();
+                        // frm.save();
                     })
                 }
             });
@@ -156,9 +156,12 @@ frappe.ui.form.on("Programme Formation", {
             })
     },
     before_save(frm){
-        for (const row of frm.doc.planification_cours){
-            row.programme_formation = frm.doc.name
-            row.titre = row.type + ' | ' + row.nbr_cours + ' x ' + row.durée / 60 / 60 + ' h' 
+        if ( frm.doc.planification_cours ){
+
+            for (const row of frm.doc.planification_cours){
+                row.programme_formation = frm.doc.name
+                row.titre = row.type + ' | ' + row.nbr_cours + ' x ' + row.durée / 60 / 60 + ' h' 
+            }
         }
     }
 });

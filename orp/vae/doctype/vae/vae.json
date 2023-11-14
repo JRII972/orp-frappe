@@ -89,7 +89,7 @@
    "in_list_view": 1,
    "label": "Contact",
    "mandatory_depends_on": "eval:doc.client_diff\u00e9rent_du_stagiaire == true ",
-   "options": "Contact"
+   "options": "Contact_old"
   },
   {
    "fieldname": "section_break_fxya",
@@ -301,6 +301,7 @@
    "read_only": 1
   },
   {
+   "default": "A trait\u00e9",
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
@@ -309,7 +310,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-11-01 23:40:34.300862",
+ "modified": "2023-11-14 21:29:23.968070",
  "modified_by": "Administrator",
  "module": "VAE",
  "name": "VAE",

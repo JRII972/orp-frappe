@@ -162,9 +162,13 @@
   {
    "link_doctype": "Cours",
    "link_fieldname": "programme_formation"
+  },
+  {
+   "link_doctype": "Rapport de cours",
+   "link_fieldname": "programme_formation"
   }
  ],
- "modified": "2023-11-02 05:47:29.671699",
+ "modified": "2023-11-02 14:05:48.473130",
  "modified_by": "Administrator",
  "module": "Formation",
  "name": "Programme Formation",

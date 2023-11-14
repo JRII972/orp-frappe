@@ -293,7 +293,10 @@ frappe.ui.form.on("VAE", {
                             })
                             if (_list.length == 1 ){
                                 frm.set_value('liste_de_prix', _list[0])
-                            }
+                            } 
+                            if (_list.length == 0 ){
+                                frappe.msgprint('Aucun prix n\'a été crée')
+                            } 
                         })
                     
                 }

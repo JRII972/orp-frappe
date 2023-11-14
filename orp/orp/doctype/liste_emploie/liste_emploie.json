@@ -1,0 +1,58 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-11-02 14:46:06.801821",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "company_name",
+  "date_de_prise_de_poste",
+  "column_break_bkne",
+  "titre_du_poste",
+  "date_de_fin"
+ ],
+ "fields": [
+  {
+   "fieldname": "company_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Company Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "date_de_prise_de_poste",
+   "fieldtype": "Date",
+   "label": "Date de prise de poste"
+  },
+  {
+   "fieldname": "column_break_bkne",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "titre_du_poste",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Titre du poste",
+   "reqd": 1
+  },
+  {
+   "fieldname": "date_de_fin",
+   "fieldtype": "Date",
+   "label": "Date de fin"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2023-11-02 14:46:37.321948",
+ "modified_by": "Administrator",
+ "module": "orp",
+ "name": "Liste emploie",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

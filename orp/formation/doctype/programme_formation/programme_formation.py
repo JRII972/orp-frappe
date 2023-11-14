@@ -11,7 +11,7 @@ class ProgrammeFormation(Document):
         cours_data.update({
             'doctype': 'Cours'
         })
-        
+        print(cours_data)
         cours = frappe.new_doc(**cours_data)
         cours.insert()
         return cours.name
@@ -19,16 +19,19 @@ class ProgrammeFormation(Document):
     def validate(self):
         self.liste_cours = []
         self.durée_effectué = 0
+        self.durée_planifié = 0
         cours_list = frappe.db.get_all('Cours',
             filters={
                 'programme_formation': self.name
             },
-            fields=['name', 'titre', 'etat', 'all_day', 'début', 'durée', 'objectif_du_module', 'formateur'],
+            fields=['name', 'titre', 'status', 'all_day', 'début', 'durée', 'objectif_du_module', 'formateur'],
             as_list = False
         )
         
         for cours in cours_list : 
-            self.durée_effectué += cours['durée']
+            print(cours)
+            self.durée_planifié += cours['durée']
+            if cours['status'] == 'Fait' : self.durée_effectué  += cours['durée']
             cours['cours'] = cours['name']
             cours.pop('name')
             # self.append('liste_cours', cours)

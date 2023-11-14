@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2023-07-27 10:50:39.585478",
+ "creation": "2023-11-02 12:43:00.630309",
  "default_view": "List",
  "doctype": "DocType",
  "document_type": "Document",
@@ -38,10 +38,6 @@
    "reqd": 1
   },
   {
-   "fieldname": "column_break_ddmd",
-   "fieldtype": "Column Break"
-  },
-  {
    "fetch_from": "programme_formation.nom",
    "fieldname": "module",
    "fieldtype": "Link",
@@ -49,26 +45,30 @@
    "options": "Module"
   },
   {
-   "fieldname": "column_break_nrmo",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "d\u00e9but",
-   "fieldtype": "Datetime",
+   "default": "Programmer",
+   "fieldname": "status",
+   "fieldtype": "Select",
    "in_list_view": 1,
-   "label": "D\u00e9but"
+   "in_standard_filter": 1,
+   "label": "Etat",
+   "options": "\nProgrammer\nFait\nD\u00e9placer\nAnnul\u00e9"
   },
   {
-   "fieldname": "fin",
-   "fieldtype": "Datetime",
-   "label": "Fin",
-   "read_only": 1
+   "default": "Programmer",
+   "fieldname": "type",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Type",
+   "options": "Type de cours"
   },
   {
-   "collapsible": 1,
-   "fieldname": "section_break_gspt",
-   "fieldtype": "Section Break",
-   "label": "Contenue du cours"
+   "fieldname": "color",
+   "fieldtype": "Color",
+   "label": "Couleur d'affichage"
+  },
+  {
+   "fieldname": "column_break_ddmd",
+   "fieldtype": "Column Break"
   },
   {
    "fieldname": "formation",
@@ -98,6 +98,45 @@
    "options": "User"
   },
   {
+   "fetch_from": ".",
+   "fetch_if_empty": 1,
+   "fieldname": "planification",
+   "fieldtype": "Link",
+   "label": "Planification",
+   "options": "Planification cours"
+  },
+  {
+   "fieldname": "column_break_nrmo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "d\u00e9but",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "D\u00e9but"
+  },
+  {
+   "default": "0",
+   "fieldname": "all_day",
+   "fieldtype": "Check",
+   "label": "Toute la journ\u00e9e ?"
+  },
+  {
+   "fetch_from": ".dur\u00e9e",
+   "fieldname": "dur\u00e9e",
+   "fieldtype": "Duration",
+   "hide_days": 1,
+   "hide_seconds": 1,
+   "label": "Dur\u00e9e",
+   "mandatory_depends_on": "!all_day "
+  },
+  {
+   "fieldname": "fin",
+   "fieldtype": "Datetime",
+   "label": "Fin",
+   "read_only": 1
+  },
+  {
    "collapsible": 1,
    "fieldname": "description_du_module_section",
    "fieldtype": "Section Break",
@@ -112,67 +151,24 @@
    "read_only": 1
   },
   {
+   "collapsible": 1,
+   "fieldname": "section_break_gspt",
+   "fieldtype": "Section Break",
+   "label": "Contenue du cours"
+  },
+  {
    "fetch_from": ".description",
    "fieldname": "contenue_copy_copy",
    "fieldtype": "Text Editor",
    "label": "Contenue Copy Copy"
-  },
-  {
-   "fieldname": "color",
-   "fieldtype": "Color",
-   "label": "Couleur d'affichage"
-  },
-  {
-   "fetch_from": ".dur\u00e9e",
-   "fieldname": "dur\u00e9e",
-   "fieldtype": "Duration",
-   "hide_days": 1,
-   "hide_seconds": 1,
-   "label": "Dur\u00e9e",
-   "mandatory_depends_on": "!all_day "
-  },
-  {
-   "default": "0",
-   "fieldname": "all_day",
-   "fieldtype": "Check",
-   "label": "Toute la journ\u00e9e ?"
-  },
-  {
-   "fetch_from": ".",
-   "fetch_if_empty": 1,
-   "fieldname": "planification",
-   "fieldtype": "Link",
-   "label": "Planification",
-   "options": "Planification cours"
-  },
-  {
-   "fieldname": "type",
-   "fieldtype": "Link",
-   "in_standard_filter": 1,
-   "label": "Type",
-   "options": "Type de cours"
-  },
-  {
-   "default": "Programmer",
-   "fieldname": "status",
-   "fieldtype": "Select",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Etat",
-   "options": "\nProgrammer\nFait\nD\u00e9placer\nAnnul\u00e9"
   }
  ],
  "index_web_pages_for_search": 1,
- "links": [
-  {
-   "link_doctype": "Rapport de cours",
-   "link_fieldname": "cours"
-  }
- ],
- "modified": "2023-11-02 14:23:40.063190",
+ "links": [],
+ "modified": "2023-11-02 12:43:00.630309",
  "modified_by": "Administrator",
  "module": "Formation",
- "name": "Cours",
+ "name": "Cpurs",
  "owner": "Administrator",
  "permissions": [
   {
@@ -184,15 +180,6 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
-   "share": 1,
-   "write": 1
-  },
-  {
-   "email": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Formateur",
    "share": 1,
    "write": 1
   }

@@ -1,0 +1,45 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-11-02 14:42:45.022252",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "dipl\u00f4me__formation",
+  "column_break_rjvl",
+  "date_dobtention"
+ ],
+ "fields": [
+  {
+   "fieldname": "dipl\u00f4me__formation",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Dipl\u00f4me / formation",
+   "options": "Diplome",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_rjvl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "date_dobtention",
+   "fieldtype": "Link",
+   "label": "Date d'obtention",
+   "options": "Diplome"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2023-11-02 14:42:51.848153",
+ "modified_by": "Administrator",
+ "module": "orp",
+ "name": "Liste diplome",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

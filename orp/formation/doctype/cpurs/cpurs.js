@@ -1,7 +1,7 @@
 // Copyright (c) 2023, jeremy jovinac and contributors
 // For license information, please see license.txt
 
-frappe.ui.form.on("Cours", {
+frappe.ui.form.on("Cpurs", {
 	refresh(frm) {
         if ( frm.doc.formation){
             if (frm.doc.programme_formation){
@@ -86,7 +86,7 @@ frappe.ui.form.on("Cours", {
     update_by_planif(frm){
         if ( ! frm.doc.planification ){
             frm.toggle_enable(['durée', 'all_day', 'type'], true);
-            // frm.refresh()
+            frm.refresh()
         } else {
              // call with all options
         frappe.call({

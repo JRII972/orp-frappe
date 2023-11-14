@@ -8,6 +8,7 @@
  "engine": "InnoDB",
  "field_order": [
   "formation",
+  "programme_formation",
   "cours",
   "section_break_byzz",
   "r\u00e9sumer",
@@ -18,6 +19,7 @@
  ],
  "fields": [
   {
+   "fetch_from": "cours.formation",
    "fieldname": "formation",
    "fieldtype": "Link",
    "label": "Formation",
@@ -26,8 +28,10 @@
   {
    "fieldname": "cours",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Cours",
-   "options": "Programme Formation"
+   "options": "Cours",
+   "reqd": 1
   },
   {
    "fieldname": "section_break_byzz",
@@ -62,12 +66,19 @@
    "options": "Rapport de cours",
    "print_hide": 1,
    "read_only": 1
+  },
+  {
+   "fetch_from": "cours.programme_formation",
+   "fieldname": "programme_formation",
+   "fieldtype": "Link",
+   "label": "Programme Formation",
+   "options": "Programme Formation"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-07-24 16:05:34.886451",
+ "modified": "2023-11-02 14:06:19.889832",
  "modified_by": "Administrator",
  "module": "Formation",
  "name": "Rapport de cours",
@@ -82,6 +93,18 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Formateur",
    "share": 1,
    "write": 1
   }
